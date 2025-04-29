@@ -27,7 +27,11 @@ export default defineConfig({
       imports: ['vue', 'uni-app'],
       dts: 'src/types/auto-import.d.ts',
       dirs: ['src/hooks'], // 自动导入 hooks
-      eslintrc: { enabled: true },
+      eslintrc: {
+        enabled: true,
+        filepath: './.eslintrc-auto-import.json',
+        globalsPropValue: true,
+      },
       vueTemplate: true, // default false
     }),
     ViteRestart({
