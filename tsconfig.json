@@ -1,0 +1,52 @@
+{
+  // "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true, // 生成 `.map` 文件以支持调试
+    "baseUrl": ".", // 解析非相对模块的基础路径
+    "paths": {
+      "@/*": ["./src/*"] // 配置路径别名
+    },
+    "lib": ["esnext", "dom"],
+    // 添加 UniApp 类型支持
+    "types": [
+      // uni-app + Vue 3 使用 Vite 构建
+      "vite/client",
+      // uni API 相关的 TypeScript 类型
+      "@dcloudio/types",
+      // 为 uni-app 组件提供 TypeScript 类型
+      "@uni-helper/uni-app-types",
+      // 为 uni-ui 组件提供 TypeScript 类型
+      "@uni-helper/uni-ui-types",
+      "wot-design-uni/global"
+    ],
+    // 基础选项
+    "target": "ESNext", // 目标 JavaScript 版本
+    "module": "ESNext", // 模块代码生成方式
+    "moduleResolution": "Bundler", // 模块解析策略
+    "resolveJsonModule": true,
+    "noImplicitThis": true,
+    "strict": true, // 启用所有严格类型检查选项
+    "esModuleInterop": true, // 允许 CommonJS 和 ES 模块互操作
+    "skipLibCheck": true, // 跳过声明文件的类型检查
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致性
+    "jsx": "preserve", // Vue 3 支持, 保留 JSX 语法供 Vue 处理
+    "jsxImportSource": "vue",
+    // 新特性（TypeScript 5.0+）
+    "verbatimModuleSyntax": true, // 统一模块导入行为
+    "useDefineForClassFields": true
+    // "isolatedModules": true // 确保每个文件都可以独立编译
+  },
+  "vueCompilerOptions": {
+    // 调整 Volar（Vue 语言服务工具）解析行为，用于为 uni-app 组件提供 TypeScript 类型
+    "plugins": ["@uni-helper/uni-app-types/volar-plugin"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/types/**/*.d.ts",
+    "*.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}
