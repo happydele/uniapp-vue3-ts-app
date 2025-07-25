@@ -2,10 +2,10 @@
 import { defineManifestConfig } from '@uni-helper/vite-plugin-uni-manifest'
 
 export default defineManifestConfig({
-  name: 'rwf-v3-frontend',
-  appid: '',
-  description: '',
-  versionName: '1.0.0',
+  name: 'rwf-tt-miniprogram',
+  appid: 'tt1daf6b1282a79a0201',
+  description: '一个rwf抖音小程序项目',
+  versionName: '1.9.0',
   versionCode: '100',
   transformPx: false, // 此选项已废弃
   debug: false,
@@ -68,7 +68,7 @@ export default defineManifestConfig({
   },
   /* 抖音小程序 */
   'mp-toutiao': {
-    // "appid": "your-douyin-appid",
+    appid: 'tt1daf6b1282a79a0201',
     setting: {
       urlCheck: false,
       es6: true,

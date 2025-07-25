@@ -14,13 +14,15 @@
     </view>
   </view>
   <view class="menu-view">
-    <navigator
+    <!-- <navigator
       url="/pages/login/index"
       open-type="navigate"
       hover-class="navigator-hover"
     >
-      <button size="default">跳转到登录页</button>
-    </navigator>
+      <button size="default">去登录页</button>
+    </navigator> -->
+
+    <button size="default" @click="handleGotoLogin">去登录页</button>
   </view>
 </template>
 

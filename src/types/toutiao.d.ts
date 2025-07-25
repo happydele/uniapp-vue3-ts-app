@@ -2,8 +2,25 @@
 
 declare namespace tt {
   function login(options: {
-    success?: (res: { code: string }) => void
-    fail?: (err: any) => void
+    force?: boolean
+    success?: (res: {
+      code: string
+      isLogin: boolean
+      anonymousCode: string
+      errMsg: string
+    }) => void
+    fail?: (err: object) => void
+    complete?: () => void
+  }): void
+
+  function checkSession(options: {
+    success?: (res: { errMsg: string }) => void
+    fail?: (err: {
+      errMsg: string
+      errNo: number
+      errorCode: number
+      errorType: 'D' | 'F'
+    }) => void
     complete?: () => void
   }): void
 

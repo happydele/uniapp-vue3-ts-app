@@ -12,7 +12,30 @@ export default defineUniPages({
     },
   },
   // 你也可以定义 pages 字段，它具有最高的优先级。
-  pages: [],
+  pages: [
+    {
+      path: 'pages/index/index',
+      type: 'home',
+      layout: 'default',
+      style: {
+        navigationBarTitleText: '首页',
+      },
+    },
+    {
+      path: 'pages/login/index',
+      type: 'page',
+      style: {
+        navigationBarTitleText: '登录页',
+      },
+    },
+    {
+      path: 'pages/test/index',
+      type: 'page',
+      style: {
+        navigationBarTitleText: '示例页',
+      },
+    },
+  ],
   globalStyle: {
     // 导航栏标题颜色及状态栏前景颜色
     navigationBarTextStyle: 'black',

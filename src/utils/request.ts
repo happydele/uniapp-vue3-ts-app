@@ -1,11 +1,11 @@
 // src/utils/request.ts
 // 全局配置
-const BASE_URL = import.meta.env.VITE_APP_BASE_API || 'https://api.example.com' // 替换为你的 API 基础路径
+const BASE_URL = import.meta.env.VITE_APP_BASE_API
 
 /**
  * 封装 uni.request 方法
  */
-export const request = <T>(options: UniApp.RequestOptions): Promise<T> => {
+export const request = (options: UniApp.RequestOptions): Promise<any> => {
   const { url, method = 'GET', data, header = {}, ...rest } = options
   // 请求拦截器：添加 token
   const token = uni.getStorageSync('token')
@@ -34,7 +34,7 @@ export const request = <T>(options: UniApp.RequestOptions): Promise<T> => {
         }
         // 状态码判断
         if (statusCode === 200) {
-          resolve(data as T)
+          resolve(data as any)
         } else {
           handleHttpError(statusCode, data)
           reject(new Error(`Request failed with status code ${statusCode}`))
@@ -89,48 +89,48 @@ function handleNetworkError(err: any) {
  * 导出封装的方法
  */
 export const http = {
-  get<T>(
+  get(
     url: string,
     params?: object,
     config?: UniApp.RequestOptions
-  ): Promise<T> {
-    return request<T>({
+  ): Promise<any> {
+    return request({
       url,
       method: 'GET',
       data: params,
       ...config,
     })
   },
-  post<T>(
+  post(
     url: string,
     data?: object,
     config?: UniApp.RequestOptions
-  ): Promise<T> {
-    return request<T>({
+  ): Promise<any> {
+    return request({
       url,
       method: 'POST',
       data,
       ...config,
     })
   },
-  put<T>(
+  put(
     url: string,
     data?: object,
     config?: UniApp.RequestOptions
-  ): Promise<T> {
-    return request<T>({
+  ): Promise<any> {
+    return request({
       url,
       method: 'PUT',
       data,
       ...config,
     })
   },
-  delete<T>(
+  delete(
     url: string,
     data?: object,
     config?: UniApp.RequestOptions
-  ): Promise<T> {
-    return request<T>({
+  ): Promise<any> {
+    return request({
       url,
       method: 'DELETE',
       data,
